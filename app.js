@@ -37,8 +37,11 @@ app.use(express.static(path.join(__dirname, 'public')))
 // ]
 
 app.get('/', (req, res) => {
-  res.send('Yo hello McFly. Anybody home?');
+  // res.send('Yo hello McFly. Anybody home?');
   // res.json(people)
+  res.render('index', {
+    title: 'Customers'
+  });
 });
 
 app.listen(3000, () => {
