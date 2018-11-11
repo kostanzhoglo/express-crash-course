@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>My Express App</title>
-  </head>
-  <body>
+<% include partials/header %>
     <h1>HELLO FROM EJS</h1>
     <h2><%= title %></h2>
-  </body>
-</html>
+    <ul>
+    <% users.map(function(user) { %>
+      <li><%= user.first_name %> <%= user.last_name %> -- <%= user.email %></li>
+    <% }) %>
+    </ul>
+<% include partials/footer %>

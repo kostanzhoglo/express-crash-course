@@ -2,6 +2,7 @@ const express = require('express');
 // import express from 'express';
 const bodyParser = require('body-parser');
 const path = require('path');
+const expressValidator = require('express-validator')
 
 const app = express();
 
@@ -36,11 +37,33 @@ app.use(express.static(path.join(__dirname, 'public')))
 //   }
 // ]
 
+const users = [
+  {
+    id: 1,
+    first_name: 'John',
+    last_name: 'Doe',
+    email: 'johndoe@gmail.com'
+  },
+  {
+    id: 2,
+    first_name: 'Bob',
+    last_name: 'Smith',
+    email: 'bobsmith@gmail.com'
+  },
+  {
+    id: 3,
+    first_name: 'Jill',
+    last_name: 'Jackson',
+    email: 'jilljackson@gmail.com'
+  }
+]
+
 app.get('/', (req, res) => {
   // res.send('Yo hello McFly. Anybody home?');
   // res.json(people)
   res.render('index', {
-    title: 'Customers'
+    title: 'Customers',
+    users: users
   });
 });
 
